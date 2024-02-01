@@ -1,0 +1,625 @@
+{
+	"info": {
+		"_postman_id": "44793888-54c8-4a37-91dd-5c23b66693de",
+		"name": "Ecommerce",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "25280603",
+		"_collection_link": "https://lunar-rocket-859585.postman.co/workspace/ONDC-TS-v1.0~bb44ec8b-0cb3-4ea5-96f1-f36a63c20511/collection/25280603-44793888-54c8-4a37-91dd-5c23b66693de?action=share&source=collection_link&creator=25280603"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Registeration",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Virat Kohli\",\r\n    \"email\": \"viratk@indian.com\",\r\n    \"password\": \"1111111\",\r\n    \"phoneNo\": \"9111919191\",\r\n    \"address\": \"Jharkhand\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseURL}}/user/register"
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const res = pm.response.json();\r",
+									"if(res?.data?.token){\r",
+									"    pm.environment.set(\"accessToken\", res.data.token)\r",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"msdhoni@indian.com\",\r\n    \"password\": \"msdhoni\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseURL}}/user/login"
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseURL}}/user/logout"
+					},
+					"response": []
+				},
+				{
+					"name": "Get User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{baseURL}}/user"
+					},
+					"response": []
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"MS Dhoni\",\r\n    \"email\": \"msdhoni@indian.com\",\r\n    \"password\": \"msdhoni\",\r\n    \"phoneNo\": \"9191919191\",\r\n    \"address\": \"Jharkhand\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseURL}}/user"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "Get Product",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{baseURL}}/product"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Product based on category",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{baseURL}}/product/category/spo"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Cart",
+			"item": [
+				{
+					"name": "add product to cart",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"productId\": \"65b475d802263b87799315e8\",\r\n    \"quantity\":5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseURL}}/cart"
+					},
+					"response": []
+				},
+				{
+					"name": "update product to the cart",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"productId\": \"65b475d802263b87799315e8\",\r\n    \"quantity\": 7\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseURL}}/cart"
+					},
+					"response": []
+				},
+				{
+					"name": "get cart",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseURL}}/cart"
+					},
+					"response": []
+				},
+				{
+					"name": "delete cart item",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseURL}}/cart/65b475d802263b87799315e8"
+					},
+					"response": []
+				},
+				{
+					"name": "clear cart",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseURL}}/cart/clear"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Orders",
+			"item": [
+				{
+					"name": "create order",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseURL}}/order/create"
+					},
+					"response": []
+				},
+				{
+					"name": "get order details",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"productId\": \"65b475d802263b87799315e7\",\r\n    \"quantity\": 7\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseURL}}/order/"
+					},
+					"response": []
+				},
+				{
+					"name": "get order details based on Id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseURL}}/order/65b737478a2e527acb662833"
+					},
+					"response": []
+				},
+				{
+					"name": "confirm order",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseURL}}/order/65b737478a2e527acb662833/confirm"
+					},
+					"response": []
+				},
+				{
+					"name": "cancel order",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseURL}}/order/65b61a73b50794d1995084fd/cancel"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Elastic Search",
+			"item": [
+				{
+					"name": "ping",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{baseURL}}/elastic/ping"
+					},
+					"response": []
+				},
+				{
+					"name": "createIndex",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": "{{baseURL}}/elastic/index/init/product"
+					},
+					"response": []
+				},
+				{
+					"name": "index exist",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": "{{baseURL}}/elastic/index/check/product"
+					},
+					"response": []
+				},
+				{
+					"name": "index mapping",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"properties\": {\r\n        \"name\": {\r\n            \"type\": \"text\"\r\n        },\r\n        \"price\": {\r\n            \"type\": \"double\"\r\n        },\r\n        \"description\": {\r\n            \"type\": \"text\"\r\n        },\r\n        \"category\": {\r\n            \"type\": \"keyword\"\r\n        },\r\n        \"quantity\": {\r\n            \"type\": \"integer\"\r\n        }\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseURL}}/elastic/index/mapping/product"
+					},
+					"response": []
+				},
+				{
+					"name": "search",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"P001\",\r\n    \"indexName\": \"product\",\r\n    \"payload\": {\r\n        \"name\": \"Smartphone X\",\r\n        \"price\": 10.0,\r\n        \"description\": \"High-end smartphone with advanced features.\",\r\n        \"category\": \"electronics\",\r\n        \"quantity\": 85\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/elastic/search?indexName=product&q=electronics",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"elastic",
+								"search"
+							],
+							"query": [
+								{
+									"key": "indexName",
+									"value": "product"
+								},
+								{
+									"key": "q",
+									"value": "electronics"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add data",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"P004\",\r\n    \"indexName\": \"product\",\r\n    \"payload\": {\r\n        \"name\": \"Smartphone 32434\",\r\n        \"price\": 1980.0,\r\n        \"description\": \"High-end smartphoneee with advanced featuress.\",\r\n        \"category\": \"electronics\",\r\n        \"quantity\": 84\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseURL}}/elastic/add"
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Smartphone X\",\r\n    \"price\": 10.0,\r\n    \"description\": \"High-end smartphone with advanced features.\",\r\n    \"category\": \"electronics\",\r\n    \"quantity\": 85\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/elastic/update?id=P001&indexName=product",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"elastic",
+								"update"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "P001"
+								},
+								{
+									"key": "indexName",
+									"value": "product"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/elastic/delete?id=P001&indexName=product",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"elastic",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "P001"
+								},
+								{
+									"key": "indexName",
+									"value": "product"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteAll",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseURL}}/elastic/delete-all"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

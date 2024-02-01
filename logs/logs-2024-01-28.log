@@ -1,0 +1,25 @@
+2024-01-28 10:56:58 [order.controller.ts] error: Func(): createOrder message : Schema hasn't been registered for model "ProductModel".
+Use mongoose.model(name, schema)
+2024-01-28 10:57:50 [order.controller.ts] error: Func(): createOrder message : Schema hasn't been registered for model "ProductModel".
+Use mongoose.model(name, schema)
+2024-01-28 10:58:13 [order.controller.ts] error: Func(): createOrder message : Schema hasn't been registered for model "productModel".
+Use mongoose.model(name, schema)
+2024-01-28 11:22:13 [order.controller.ts] error: Func(): createOrder message : carts validation failed: status: `ordered` is not a valid enum value for path `status`.
+2024-01-28 12:07:51 [order.controller.ts] error: Func(): createOrder message : Invalid $project :: caused by :: Path collision at cart.items.quantity remaining portion items.quantity
+2024-01-28 13:10:01 [order.controller.ts] error: Func(): createOrder message : The field name 'cart.items' cannot contain '.'
+2024-01-28 13:18:14 [order.controller.ts] error: Func(): createOrder message : PlanExecutor error during aggregation :: caused by :: input to $map must be an array not object
+2024-01-28 13:20:10 [order.controller.ts] error: Func(): createOrder message : PlanExecutor error during aggregation :: caused by :: $indexOfArray requires an array as a first argument, found: objectId
+2024-01-28 13:21:09 [order.controller.ts] error: Func(): createOrder message : PlanExecutor error during aggregation :: caused by :: $indexOfArray requires an array as a first argument, found: objectId
+2024-01-28 13:46:05 [order.controller.ts] error: Func(): createOrder message : Unrecognized expression '$push'
+2024-01-28 14:05:28 [order.controller.ts] error: Func(): createOrder message : Unrecognized expression '$push'
+2024-01-28 14:08:46 [order.controller.ts] error: Func(): createOrder message : Unrecognized expression '$addToSet'
+2024-01-28 14:08:47 [order.controller.ts] error: Func(): createOrder message : Unrecognized expression '$addToSet'
+2024-01-28 14:09:30 [order.controller.ts] error: Func(): createOrder message : Unrecognized expression '$addToSet'
+2024-01-28 14:14:33 [order.controller.ts] error: Func(): createOrder message : Unrecognized expression '$addToSet'
+2024-01-28 14:15:22 [order.controller.ts] error: Func(): createOrder message : Unrecognized expression '$push'
+2024-01-28 14:17:34 [order.controller.ts] error: Func(): createOrder message : Unrecognized expression '$push'
+2024-01-28 14:26:54 [order.controller.ts] error: Func(): createOrder message : Unrecognized expression '$push'
+2024-01-28 14:27:56 [order.controller.ts] error: Func(): createOrder message : Unrecognized expression '$push'
+2024-01-28 14:35:40 [order.controller.ts] error: Func(): createOrder message : input must be a 24 character hex string, 12 byte Uint8Array, or an integer
+2024-01-28 14:37:29 [order.controller.ts] error: Func(): createOrder message : input must be a 24 character hex string, 12 byte Uint8Array, or an integer
+2024-01-28 16:06:49 [order.controller.ts] error: Func(): cancelOrder message : orders validation failed: status: `cancelled` is not a valid enum value for path `status`.

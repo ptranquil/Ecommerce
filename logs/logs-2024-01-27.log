@@ -1,0 +1,20 @@
+2024-01-27 08:08:36 [users.controller.ts] error: Func(): registerUser message : user validation failed: token: Path `token` is required.
+2024-01-27 08:22:32 [users.controller.ts] error: Func(): updateUser message : No _id found on document!
+2024-01-27 08:23:07 [users.controller.ts] error: Func(): updateUser message : No _id found on document!
+2024-01-27 08:24:48 [users.controller.ts] error: Func(): updateUser message : No _id found on document!
+2024-01-27 11:59:28 [cart.controller.ts] error: Func(): addProductToCart message : Cast to Number failed for value "{ '$multiply': [ '$items.$.price', '$items.$.quantity' ] }" (type Object) at path "totalPrice"
+2024-01-27 12:01:01 [cart.controller.ts] error: Func(): addProductToCart message : Cast to Number failed for value "{ '$multiply': [ '$items.$.price', 1 ] }" (type Object) at path "totalPrice"
+2024-01-27 12:04:06 [cart.controller.ts] error: Func(): addProductToCart message : Cast to Number failed for value "{ '$multiply': [ 'items.$.totalPrice', 'items.$.quantity' ] }" (type Object) at path "totalPrice"
+2024-01-27 12:06:29 [cart.controller.ts] error: Func(): addProductToCart message : Cast to Number failed for value "{ '$multiply': [ 'items.$.totalPrice', 1 ] }" (type Object) at path "totalPrice"
+2024-01-27 12:06:42 [cart.controller.ts] error: Func(): addProductToCart message : Cast to Number failed for value "{ '$multiply': [ 2, 1 ] }" (type Object) at path "totalPrice"
+2024-01-27 12:18:03 [cart.controller.ts] error: Func(): addProductToCart message : Cast to Number failed for value "{ '$multiply': [ 'items.$.totalPrice', 4 ] }" (type Object) at path "totalPrice"
+2024-01-27 12:23:04 [cart.controller.ts] error: Func(): addProductToCart message : Cast to Number failed for value "[ '$items.$.price', 1 ]" (type Array) at path "totalPrice"
+2024-01-27 13:40:14 [cart.controller.ts] error: Func(): viewCart message : Invalid $project :: caused by :: Path collision at items.products remaining portion products
+2024-01-27 13:41:06 [cart.controller.ts] error: Func(): viewCart message : Invalid $project :: caused by :: Path collision at items.productId remaining portion productId
+2024-01-27 13:41:07 [cart.controller.ts] error: Func(): viewCart message : Invalid $project :: caused by :: Path collision at items.productId remaining portion productId
+2024-01-27 13:46:08 [cart.controller.ts] error: Func(): viewCart message : path option to $unwind stage should be prefixed with a '$': items.product
+2024-01-27 13:46:47 [cart.controller.ts] error: Func(): viewCart message : path option to $unwind stage should be prefixed with a '$': items.product
+2024-01-27 13:47:43 [cart.controller.ts] error: Func(): viewCart message : path option to $unwind stage should be prefixed with a '$': items.product
+2024-01-27 18:40:13 [cart.controller.ts] error: Func(): viewCart message : Invalid $project :: caused by :: FieldPath field names may not start with '$'. Consider using $getField or $setField.
+2024-01-27 18:40:33 [cart.controller.ts] error: Func(): viewCart message : Invalid $project :: caused by :: Path collision at items.quantity remaining portion quantity
+2024-01-27 19:27:06 [cart.controller.ts] error: Func(): removeCartItem message : Cast to ObjectId failed for value "clear" (type string) at path "productId" for model "carts"

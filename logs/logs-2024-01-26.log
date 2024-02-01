@@ -1,0 +1,10 @@
+2024-01-26 12:58:34 [users.controller.ts] error: Func(): addUser message : undefined
+2024-01-26 13:11:40 [users.controller.ts] error: Func(): addUser message : undefined
+2024-01-26 13:12:38 [users.controller.ts] error: Func(): addUser message : undefined
+2024-01-26 13:13:04 [users.controller.ts] error: Func(): addUser message : undefined
+2024-01-26 13:13:06 [users.controller.ts] error: Func(): addUser message : undefined
+2024-01-26 13:34:36 [users.controller.ts] error: Func(): registerUser message : undefined
+2024-01-26 14:27:10 [users.controller.ts] error: Func(): login message : undefined
+2024-01-26 14:27:13 [users.controller.ts] error: Func(): login message : undefined
+2024-01-26 14:27:22 [users.controller.ts] error: Func(): login message : undefined
+2024-01-26 14:27:58 [users.controller.ts] error: Func(): login message : data and hash arguments required
